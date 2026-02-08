@@ -18,7 +18,6 @@ except Exception as e:
     print("❌ Model loading failed:", e)
 
 
-
 # ---------- Health check ----------
 @app.route("/", methods=["GET"])
 def home():
