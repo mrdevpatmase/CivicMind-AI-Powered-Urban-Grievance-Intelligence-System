@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 # ---------- Safe model paths ----------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "nlp_model.pkl")
-VECTORIZER_PATH = os.path.join(BASE_DIR, "..", "models", "vectorizer.pkl")
+MODEL_PATH = r"C:\Users\devpa\OneDrive\Desktop\CivicMind\ai-service\models\nlp_model.pkl"
+VECTORIZER_PATH = r"C:\Users\devpa\OneDrive\Desktop\CivicMind\ai-service\models\vectorizer.pkl"
 
 # ---------- Load model safely ----------
 try:
