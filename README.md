@@ -57,6 +57,7 @@ Backend & frontend development is currently ongoing.
 
 ## 📁 Project Structure
 
+```
 CivicMind/
 │
 ├── ai/
@@ -70,6 +71,7 @@ CivicMind/
 ├── frontend/ # React frontend (WIP)
 ├── README.md
 └── .gitignore
+```
 
 
 
