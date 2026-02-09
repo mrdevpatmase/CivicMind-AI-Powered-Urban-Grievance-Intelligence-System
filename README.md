@@ -79,6 +79,7 @@ CivicMind/
 
 ## 🧪 AI Pipeline (Implemented)
 
+```
 Complaint Text
 ↓
 NLP Classifier
@@ -88,7 +89,7 @@ Priority Scoring
 Fallback Logic
 ↓
 Structured Output → Backend
-
+```
 
 ---
 
