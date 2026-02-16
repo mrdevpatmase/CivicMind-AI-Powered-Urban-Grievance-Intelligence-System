@@ -1,6 +1,8 @@
 import os
 import joblib
 from flask import Flask, request, jsonify
+from severity import calculate_severity
+
 
 app = Flask(__name__)
 
@@ -40,15 +42,23 @@ def predict():
     if text == "":
         return jsonify({"error": "Empty text provided"}), 400
 
+    # -------- ML prediction --------
     X = vectorizer.transform([text])
     probs = model.predict_proba(X)[0]
 
     category = model.classes_[probs.argmax()]
     confidence = float(probs.max())
 
+    # -------- Severity calculation --------
+    severity = calculate_severity(category)
+
+
+    # -------- Final response --------
     return jsonify({
         "category": category,
-        "confidence": round(confidence, 3)
+        "confidence": round(confidence, 3),
+        "severity": severity,
+        # "priority": priority
     })
 
 
