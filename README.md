@@ -85,11 +85,25 @@ Example Response:
   "severity": 3
 }
 
+🎯 Test Accuracy: 0.7333
+
+📄 Classification Report:
+
+              precision    recall  f1-score   support
+
+       waste       1.00      0.83      0.91         6
+        road       0.60      0.50      0.55         6
+  sanitation       0.71      0.83      0.77         6
+ streetlight       0.60      0.50      0.55         6
+       water       0.75      1.00      0.86         6
+
+
+![alt text](image.png)
 🔹 Deployment
  - The model is deployed publicly using Render.
 
-Live API:
-https://civicmind-ai-service.onrender.com/
+Try the deployed API here:
+https://civicmind-ai-service.onrender.com/predict
 
 🔹 Tech Stack
 
