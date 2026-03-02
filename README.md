@@ -112,10 +112,10 @@ https://civicmind-ai-service.onrender.com/
 
 🔹 Future Improvements
 
- - Expand dataset size
- - Add multilingual support
- - Add model monitoring
- - Explore transformer-based models (BERT)
+   - Expand dataset size
+   - Add multilingual support
+   - Add model monitoring
+   - Explore transformer-based models (BERT)
 
 👨‍💻 Author
 
