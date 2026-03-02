@@ -1,142 +1,123 @@
-# CivicMind – AI-Powered Urban Grievance Intelligence System
+CivicMind – AI-Based Civic Complaint Classification System
 
-CivicMind is a smart urban grievance management platform that uses **AI (NLP, ML, LLM-ready)** to automatically classify, prioritize, and summarize citizen complaints for faster municipal response and better governance transparency.
+CivicMind is an NLP-based machine learning project that classifies civic complaints into predefined categories and assigns a severity level for prioritization.
 
-This project is being built for a hackathon and focuses on **end-to-end AI + system integration**, not just models.
+This project demonstrates an end-to-end ML pipeline: dataset creation, preprocessing, feature engineering, model training, evaluation, API development, and cloud deployment.
 
----
+🔹 Objective
 
-## 🚀 Problem Statement
-Municipal corporations receive thousands of complaints daily related to:
-- waste management
-- water supply
-- road damage
-- streetlights
-- sanitation
+To automatically classify civic complaints into one of the following categories:
 
-These complaints are often:
-- manually processed
-- poorly prioritized
-- slow to resolve
-- hard to track
+ - Water
+ - Sanitation
+ - Road
+ - Streetlight
+ - Waste
 
-CivicMind solves this using **AI-driven automation + dashboards**.
+Each category is mapped to a fixed severity level (1–5) to help prioritize issues.
 
----
-
-## 🧠 Core Features (Planned & In Progress)
-
-### ✅ AI Features
-- NLP-based complaint categorization (working)
-- AI-based priority assignment (working)
-- Confidence-based fallback logic
-- Modular AI pipeline (working)
-- LLM-ready complaint summarization (next)
-
-### 🖥️ System Features
-- Citizen complaint submission (in progress)
-- Officer dashboard (in progress)
-- Admin analytics dashboard (in progress)
-- Real-time status tracking
-- Map-based visualization (planned)
-
----
-
-## 🏗️ Current Project Status
-**AI pipeline is completed and stable**
-
-✔ Dataset created  
-✔ Model trained (96% accuracy)  
-✔ Model saved and versioned  
-✔ Inference module ready  
-✔ Pipeline ready for backend integration  
-
-Backend & frontend development is currently ongoing.
-
----
-
-## 📁 Project Structure
-
-```
-CivicMind/
-│
-├── ai/
-│ ├── data/ # complaint dataset
-│ ├── models/ # trained models (ignored in git)
-│ ├── training/ # training scripts
-│ ├── inference/ # inference logic
-│ └── pipeline.py # AI pipeline orchestrator
-│
-├── backend/ # FastAPI backend (WIP)
-├── frontend/ # React frontend (WIP)
-├── README.md
-└── .gitignore
-```
+🔹 Severity Mapping
+BASE_SEVERITY = {
+    "water": 1,
+    "sanitation": 2,
+    "road": 3,
+    "streetlight": 4,
+    "waste": 5
+}
 
 
+🔹 Dataset
 
----
+ - Custom dataset created manually
+ - 5 balanced categories
+ - English + Hinglish complaints
+ - Cleaned and preprocessed before training
 
-## 🧪 AI Pipeline (Implemented)
+Example:
 
-```
-Complaint Text
-↓
-NLP Classifier
-↓
-Priority Scoring
-↓
-Fallback Logic
-↓
-Structured Output → Backend
-```
+"pani kal se nahi aa raha" → water  
+"road full of potholes" → road  
+"kachra har jagah pada hai" → waste
 
----
 
-## 🛠️ Tech Stack
+🔹 ML Pipeline
+1️⃣ Text Cleaning
 
-### AI / ML
-- Python
-- scikit-learn
-- TF-IDF + Logistic Regression
-- Joblib
+ - Lowercasing
+ - Removing punctuation and special characters
+ - Whitespace normalization
 
-### Backend (in progress)
-- FastAPI
-- PostgreSQL
+2️⃣ Feature Engineering
 
-### Frontend (in progress)
-- React
-- Leaflet (maps)
+ - Word-level TF-IDF (1–3 n-grams)
+ - Character-level TF-IDF (3–5 n-grams)
+ - Combined sparse matrix features
 
----
+3️⃣ Model
 
-## 👥 Team Roles
-- **Team Lead & AI Lead:** Dev Patmase
-- Backend Developer: (assigned)
-- Frontend Developer: (assigned)
-- Integration & Deployment: (assigned)
+ - Logistic Regression
+ - Class balancing enabled
+ - Stratified 5-Fold Cross Validation
 
----
+🔹 Model Performance
 
-## 📌 Notes
-- Models are not pushed to GitHub (by design)
-- This repo tracks clean code only
-- AI pipeline is stable and frozen
-- Focus now is integration & demo
+ - Mean Cross Validation Accuracy: ~67%
+ - Test Accuracy: ~73%
+ - Balanced evaluation using classification report
 
----
+This model is designed for practical deployment rather than perfect academic accuracy.
 
-## 📅 Next Steps
-- Integrate AI pipeline with backend
-- Complete dashboards
-- Final demo flow
-- Deployment
-- Presentation prep
+🔹 API Development
+ - Built using Flask.
 
----
+Endpoint:
+POST /predict
 
-## 🏁 Goal
-Deliver a **working AI-powered system**, not just a prototype.
+Example Request:
+{
+  "text": "road full of potholes near school"
+}
 
-This project is built with production mindset, not academic mindset.
+Example Response:
+{
+  "category": "road",
+  "confidence": 0.81,
+  "severity": 3
+}
+
+🔹 Deployment
+ - The model is deployed publicly using Render.
+
+Live API:
+https://civicmind-ai-service.onrender.com/
+
+🔹 Tech Stack
+
+ - Python
+ - Scikit-learn
+ - TF-IDF
+ - Logistic Regression
+ - Flask
+ - Joblib
+ - Render (Deployment)
+
+🔹 What I Learned
+
+ - Building a clean ML training pipeline
+ - Avoiding data leakage
+ - Feature engineering with word + character n-grams
+ - Cross-validation and model evaluation
+ - Deploying ML models as REST APIs
+ - Debugging production errors (500, 405, model loading issues)
+
+🔹 Future Improvements
+
+ - Expand dataset size
+ - Add multilingual support
+ - Add model monitoring
+ - Explore transformer-based models (BERT)
+
+👨‍💻 Author
+
+    Dev Patmase
+    AI/ML Enthusiast | Aspiring ML Engineer
